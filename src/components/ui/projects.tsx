@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Container from './container';
 import Modal from './modal';
+import { Parallax } from 'react-scroll-parallax';
 
 const projects = [
   {
@@ -25,15 +26,15 @@ const projects = [
 
 export default function Projects() {
   return (
-    <div className="my-16">
-      <h1 className="text-white text-3xl font-bold mb-10 text-center">Projects</h1>
-      
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {projects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
-        ))}
+      <div id="projects" className="my-16">
+        <h1 className="text-white text-3xl font-bold mb-10 text-center">Projects</h1>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {projects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </div>
       </div>
-    </div>
   );
 }
 

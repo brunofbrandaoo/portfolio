@@ -13,7 +13,7 @@ interface CardProps {
 export default function Card({ card, onClick }: CardProps) {
   return (
     <button
-      className="relative bg-white rounded shadow cursor-pointer hover:shadow-lg transition w-48 h-48"
+      className="relative bg-white rounded shadow cursor-pointer hover:shadow-lg transition w-40 h-40 hover:opacity-70"
       onClick={onClick}
       type="button"
     >

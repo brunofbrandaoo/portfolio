@@ -1,4 +1,3 @@
-// Experiences.tsx
 "use client";
 
 import { useState } from "react";
@@ -46,24 +45,27 @@ export default function Experiences() {
     setSelectedCard(card);
   };
 
-  return (
-    <div className="bg-[#1e293b] p-6 flex flex-col md:flex-row gap-4 justify-center items-center">
-      {/* Container de Cards: duas colunas, gap horizontal reduzido e centralizado */}
-      <div className="w-full md:w-1/2 max-w-sm mx-auto grid grid-cols-2 gap-12 justify-items-center">
-        {cards.map((card) => (
-          <Card key={card.id} card={card} onClick={() => handleCardClick(card)} />
-        ))}
-      </div>
+  // ... imports, interface, component start ...
 
-      {/* Container de Detalhes */}
-      <div className="w-full md:w-1/2 p-4">
-        {selectedCard ? (
-          <CardDetail card={selectedCard} />
-        ) : (
-          <p className="text-white text-center">
-            Clique em um card para ver os detalhes.
-          </p>
-        )}
+  return (
+    <div id="experiences" className="my-16">
+      <h1 className="text-white text-3xl font-bold mb-10 text-center">Experiences</h1>
+      <div className="bg-[#1e293b] flex flex-col md:flex-row items-center justify-center md:justify-between gap-8">
+        <div className="w-full max-w-sm grid grid-cols-2 gap-12">
+          {cards.map((card) => (
+            <Card key={card.id} card={card} onClick={() => handleCardClick(card)} />
+          ))}
+        </div>
+
+        <div className="w-full md:w-3/5 mt-8 md:mt-0"> 
+          {selectedCard ? (
+            <CardDetail card={selectedCard} />
+          ) : (
+            <p className="text-white text-center md:text-left">
+              Clique em um card para ver os detalhes.
+            </p>
+          )}
+        </div>
       </div>
     </div>
   );

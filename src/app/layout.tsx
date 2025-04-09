@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import "@radix-ui/themes/styles.css";
+import ParallaxWrapper from "@/components/ui/parallax-wrapper";
+import Header from "@/components/ui/header";
+import Footer from "@/components/ui/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,13 +29,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#1e293b] min-h-screen`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#1e293b] min-h-screen flex flex-col`}
       >
-        <div className="max-w-7xl mx-auto px-4">
-          <header />
-          {children}
-          <footer />
-        </div>
+        <ParallaxWrapper>
+        <Header />
+          <div className="max-w-7xl mx-auto px-4 flex-grow w-full">
+            <main className="py-6">
+              {children}
+            </main>
+          </div>
+          <Footer />
+        </ParallaxWrapper>
       </body>
     </html>
   );
